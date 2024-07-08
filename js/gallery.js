@@ -56,8 +56,10 @@ preview:
 
 const gallery = document.querySelector('.gallery');
 
+let list = ''
+
 for (const {preview, original, description} of images) {
-  const elementsMarkup=
+  list += 
     `<li class="gallery-item">
       <a class="gallery-link" href=${original}>
         <img class="gallery-image" src=${preview} 
@@ -65,9 +67,9 @@ for (const {preview, original, description} of images) {
         />
       </a>
     </li>`;
-  
-    gallery.insertAdjacentHTML('beforeend', elementsMarkup);
 }
+
+gallery.insertAdjacentHTML('beforeend', list);
 
 gallery.addEventListener('click', onGalleryClick);
 
